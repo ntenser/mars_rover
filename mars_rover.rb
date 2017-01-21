@@ -5,86 +5,82 @@ class Rover
     @x_coordinate = x_coordinate
     @y_coordinate = y_coordinate
     @direction = direction
-
+  end
 
   def read_instruction(instructions)
     instructions.each do |i|
-    if i == "R" || i == "L"
-      turn(i)
-    else
-    move
-
+      if i == 'R' || i == 'L'
+        turn(i)
+      elsif
+        move
+      end
     end
   end
 
+
  def move
    case @direction
-   when "N"
+   when 'N'
      if @y_coordinate + 1 > 9
-       puts "Please turn around"
-     else
+       puts 'Please turn around'
+     elsif
        @y_coordinate += 1
      end
 
-   when "E"
+   when 'E'
      if @x_coordinate > + 1 > 9
-       puts "Please turn around"
-     else
+       puts 'Please turn around'
+     elsif
        @x_coordinate += 1
      end
 
-   when "W"
+   when 'W'
      if @x_coordinate - 1 < 0
-       puts "Please turn around"
-     else
+       puts 'Please turn around'
+     elsif
        @x_coordinate -= 1
      end
 
-   when "S"
+   when 'S'
      if @y_coordinate -1 < 0
-       puts "Please turn around"
-     else
+       puts 'Please turn around'
+     elsif
        @y_coordinate -= 1
      end
-   end
- end
+  end
 
  def turn(direct)
    case @direction
-   when "N"
-      if direct == "R"
-        @direction = "E"
-      else
-        @direction = "W"
-      end
-
-    when "E"
-       if direct == "R"
-         @direction = "S"
-       else
-         @direction = "N"
-       end
-
-    when "W"
-        if direct == "R"
-          @direction = "N"
-        else
-          @direction = "S"
-        end
-
-    when "S"
-         if direct == "R"
-           @direction = "E"
-         else
-           @direction = "W"
-         end
+   when 'N'
+    if direct == 'R'
+      @direction = 'E'
+    elsif direct =='L'
+      @direction = 'W'
     end
-   end
+
+    when 'E'
+    if direct == 'R'
+      @direction = 'S'
+    elsif direct =='L'
+      @direction = 'N'
+    end
+
+    when 'W'
+    if direct == 'R'
+      @direction = 'N'
+    elsif direct =='L'
+      @direction = 'S'
+    end
+
+    when 'S'
+    if direct == 'R'
+      @direction = 'E'
+    elsif direct =='L'
+     @direction = 'W'
+    end
+  end
 
    def report
-     puts "Position #{@x_coordinate}, #{@y_coordinate}, #{@direction}"
-
+     puts "#{@x_coordinate}, #{@y_coordinate}, #{@direction}"
    end
-
-
 end
